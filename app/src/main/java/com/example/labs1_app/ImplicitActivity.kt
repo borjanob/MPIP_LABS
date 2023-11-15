@@ -1,5 +1,6 @@
 package com.example.labs1_app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -17,6 +18,18 @@ class ImplicitActivity : AppCompatActivity() {
         textView = findViewById(R.id.textView)
         backButton = findViewById(R.id.backButton)
 
+        var bundle: Bundle? = intent.extras
+        textView.text = bundle?.getString("testVariable")
+
+
+        backButton.setOnClickListener{
+            v ->
+            Intent().let { i ->
+                i.putExtra("testVariable", "TODO")
+                setResult(RESULT_OK, i)
+                finish()
+            }
+        }
 
     }
 }
