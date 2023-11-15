@@ -19,13 +19,13 @@ class ImplicitActivity : AppCompatActivity() {
         backButton = findViewById(R.id.backButton)
 
         var bundle: Bundle? = intent.extras
-        textView.text = bundle?.getString("testVariable")
+        textView.text = bundle?.getString("activities")
 
 
         backButton.setOnClickListener{
             v ->
             Intent().let { i ->
-                i.putExtra("testVariable", "TODO")
+                //i.putExtra("testVariable", "TODO")
                 setResult(RESULT_OK, i)
                 finish()
             }
