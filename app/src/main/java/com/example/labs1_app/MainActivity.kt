@@ -20,14 +20,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textView: TextView
     private lateinit var imageButton: Button
 
-//    var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ res ->
-//        if(res.resultCode == Activity.RESULT_OK)
-//        {
-//            //val data: Intent? = res.data
-//            //textView.text = data?.getStringExtra("testVariable")
-//        }
-//    }
-
     var explicitResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){result ->
         if(result.resultCode == Activity.RESULT_OK)
         {
@@ -74,7 +66,6 @@ class MainActivity : AppCompatActivity() {
         val pkgAppsList = packageManager.queryIntentActivities(mainIntent, 0)
         for (i in pkgAppsList.indices) {
             sb.append(pkgAppsList[i].activityInfo.name + '\n')
-            //Log.d("Activity package", pkgAppsList[i].activityInfo.name)
         }
 
         btnImplicit.setOnClickListener{_ ->
@@ -83,13 +74,10 @@ class MainActivity : AppCompatActivity() {
                 //type = "text/plain"
             }.let { i -> i.putExtra("activities" ,sb.toString())
             startActivity(i)
-                //resultLauncher.launch(i)
             }
         }
 
         imageButton.setOnClickListener{
-//            val pickImgIntent:Intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-//            startActivity(pickImgIntent)
             val pickImgIntent:Intent = Intent(this, ImageActivity::class.java)
             startActivity(pickImgIntent)
         }

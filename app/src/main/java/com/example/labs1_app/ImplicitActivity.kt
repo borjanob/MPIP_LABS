@@ -25,7 +25,6 @@ class ImplicitActivity : AppCompatActivity() {
         backButton.setOnClickListener{
             v ->
             Intent().let { i ->
-                //i.putExtra("testVariable", "TODO")
                 setResult(RESULT_OK, i)
                 finish()
             }

@@ -23,10 +23,6 @@ class ExplicitActivity : AppCompatActivity() {
         buttonBack = findViewById(R.id.buttonBack)
         textView = findViewById(R.id.textView)
         userChoice = findViewById(R.id.editTextChoice)
-//        textView.addTextChangedListener { newText ->
-//            textViewResult.text = viewModel.winner(textViewComputerChoice.text.toString())
-//        }
-
 
         buttonConfirm.setOnClickListener{
             v ->
